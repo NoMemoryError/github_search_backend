@@ -1,0 +1,40 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+# Rubocop configuration
+# See: https://github.com/bbatsov/rubocop/blob/master/manual/configuration.md
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+    - 'app/**/*.rb'
+    - 'config/**/*.rb'
+    - 'lib/**/*.rb'
+    - 'lib/tasks/*.rake'
+    - 'spec/**/*.rb'
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - '**/Gemfile'
+    - '**/Capfile'
+    - '**/Guardfile'
+  TargetRubyVersion: 2.6
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+
+Metrics/AbcSize:
+  Max: 16.5
+
+Metrics/MethodLength:
+  Max: 15
+
+# Sometimes umlauts can be useful ;)
+Style/AsciiComments:
+  Enabled: false
